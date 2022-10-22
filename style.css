@@ -83,4 +83,6 @@ margin-left: 3vmin;
         display: grid;
         grid-template-columns: repeat(16, 15dp);
         grid-template-rows: repeat(16, 15dp);
+    }
 }
+
