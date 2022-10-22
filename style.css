@@ -76,3 +76,11 @@ margin-left: 3vmin;
     grid-template-columns: repeat(16, 4vmin);
     grid-template-rows: repeat(16, 4vmin);
 }
+
+@media (min-width: 480px) {
+    #gameboard{
+        border: 0.1dp solid black;
+        display: grid;
+        grid-template-columns: repeat(16, 15dp);
+        grid-template-rows: repeat(16, 15dp);
+}
