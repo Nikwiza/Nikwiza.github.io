@@ -16,8 +16,8 @@ body{
 
 #gameboard{
     position: relative;
-    height: 70vmin;
-    width: 70vmin;
+    /* height: 70vmin;
+    width: 70vmin; */
 }
 
 /* -------REFRESH BAR---------- */
@@ -73,6 +73,6 @@ margin-left: 3vmin;
 #gameboard{
     border: 0.6vmin solid black;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
+    grid-template-columns: repeat(16, 4vmin);
+    grid-template-rows: repeat(16, 4vmin);
 }

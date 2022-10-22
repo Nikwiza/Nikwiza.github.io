@@ -1,4 +1,5 @@
 
+
 // --------------------SOME GLOBAL STUFF----------------------
 var element = document.getElementById("gameboard");
 const ncolor = {
@@ -61,12 +62,14 @@ function init(){
 
     // --------------------PLAY MODE---------------------
     generate_bombs(field);
-    generate_numbers(field)
+    generate_numbers(field);
     for(let i = 0; i<16; i++){
         for(let j = 0; j<16; j++){
-            let temp = document.createElement("input");
+            let temp = document.createElement("div");
             temp.style.backgroundImage = "url('/images/tile.png')";
             temp.style.backgroundSize = "100% 100%";
+            temp.style.border = ""
+            //HERE
             temp.setAttribute("type","button");
 
             temp.addEventListener('click', function handler(){
@@ -102,6 +105,8 @@ function lfield(x,y,field){ //Open tile
         field[x][y].open = true;
         var tile = document.getElementById([x,y]);
         tile.style.background = "#B8B8B8";
+        tile.style.backgroundImage = " ";
+        tile.style.border = "0.1vmin solid black"
         tile.parentNode.replaceChild(tile.cloneNode(1), tile);
 
         
@@ -154,7 +159,7 @@ function lfield(x,y,field){ //Open tile
             openField.style.color = ncolor[field[x][y].value];
             openField.innerHTML = field[x][y].value;
             field[x][y].open = true;
-            openField.style.border = "solid black 0.1vmin"
+            openField.style.border = "0.1vmin solid black"
             openField.style.gridRowStart = x+1;
             openField.style.gridColumnStart = y+1;
             gameboard.appendChild(openField);
@@ -268,10 +273,40 @@ function check_tiles(){
         var button = document.getElementById("button");
         button.style.backgroundImage = "url('/images/win.jpeg')"
         timer_on = false;
+        console.log(timer);
+        if(count<70){
+            kupon = generate_coupon();
+            window.alert("Kupon za kafu (Mozes preuzeti samo jedan posto kafe nisu jeftine) : COUPON-"+kupon+"ab");
+        }
+        else{
         window.alert("Bravoo Marija legendo!!!...Mislim moze bolje...Ali nije ni ovo lose :)")
+        }
     }
+}
+
+function generate_coupon(){
+    var kupon = '';
+    var chars = "ABCDEFGHIJKLMNOP";
+    var charLength = chars.length;
+    for(var i = 0; i<5; i++){
+        kupon += chars.charAt(Math.floor(Math.random()* charLength));
+    }
+    return kupon;
+
 }
 function reset(){
     window.location.reload();
 }
+
+// CHEAT
+function cheat(){
+    for(let i = 0; i<16; i++){
+        for(let j = 0; j<16; j++){
+            if(field[i][j].value == -1){
+                rfield(i,j);
+            }
+        }
+    }
+}
+
 init();
