@@ -180,8 +180,8 @@ function rfield(x,y){ //Mark tile
             let temp = document.getElementById([x,y]);
             temp.style.backgroundImage = "url('/images/flag.png')";
             flags--;
-            if(parseInt(mine_count.innerHTML)<10){display='00'+(parseInt(mine_count.innerHTML)-1);}
-            if(parseInt(mine_count.innerHTML)>=10){display='0'+(parseInt(mine_count.innerHTML)-1);}
+            if(parseInt(mine_count.innerHTML)-1<10){display='00'+(parseInt(mine_count.innerHTML)-1);}
+            if(parseInt(mine_count.innerHTML)-1>=10){display='0'+(parseInt(mine_count.innerHTML)-1);}
             mine_count.innerHTML = display;
             unopened--;
             check_tiles();
@@ -191,8 +191,8 @@ function rfield(x,y){ //Mark tile
             let temp = document.getElementById([x,y]);
             temp.style.backgroundImage = "url('/images/tile.png')";
             flags++;
-            if(parseInt(mine_count.innerHTML)<10){display='00'+(parseInt(mine_count.innerHTML)+1);}
-            if(parseInt(mine_count.innerHTML)>=10){display='0'+(parseInt(mine_count.innerHTML)+1);}
+            if(parseInt(mine_count.innerHTML)+1<10){display='00'+(parseInt(mine_count.innerHTML)+1);}
+            if(parseInt(mine_count.innerHTML)+1>=10){display='0'+(parseInt(mine_count.innerHTML)+1);}
             mine_count.innerHTML = display;
             unopened++;
             check_tiles();
